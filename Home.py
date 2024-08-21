@@ -13,7 +13,7 @@ def sidebar():
         )
     if not uploaded_pdfs is None:
         for arquivo in PASTA_ARQUIVOS.glob('*.pdf'):
-            arquivo.open()
+            arquivo.unlink()
         for pdf in uploaded_pdfs:
             with open(PASTA_ARQUIVOS / pdf.name, 'wb') as f:
                 f.write(pdf.read())
